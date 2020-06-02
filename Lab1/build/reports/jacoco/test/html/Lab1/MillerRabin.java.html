@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MillerRabin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab1</a> &gt; <a href="index.source.html" class="el_package">Lab1</a> &gt; <span class="el_source">MillerRabin.java</span></div><h1>MillerRabin.java</h1><pre class="source lang-java linenums">package Lab1;
+
+import java.math.BigInteger;
+
+public class MillerRabin {
+    private MillerRabin(){}
+
+    static boolean test(BigInteger n, int iter) {
+<span class="pc bpc" id="L9" title="2 of 4 branches missed.">        if (n.equals(BigInteger.valueOf(2)) || n.equals(BigInteger.valueOf(3)))</span>
+<span class="nc" id="L10">            return true;</span>
+
+<span class="pc bpc" id="L12" title="2 of 4 branches missed.">        if (n.compareTo(BigInteger.valueOf(2)) &lt; 0 || n.mod(BigInteger.valueOf(2)).equals(BigInteger.ZERO))</span>
+<span class="nc" id="L13">            return false;</span>
+
+<span class="fc" id="L15">        BigInteger t = n.subtract(BigInteger.ONE);</span>
+
+<span class="fc" id="L17">        int s = 0;</span>
+
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        while (t.mod(BigInteger.valueOf(2)).equals(BigInteger.ZERO)) {</span>
+<span class="fc" id="L20">            t = t.divide(BigInteger.valueOf(2));</span>
+<span class="fc" id="L21">            s++;</span>
+        }
+
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        for (int i = 0; i &lt; iter; i++) {</span>
+<span class="fc" id="L25">            BigInteger a = Util.randBigInt(BigInteger.valueOf(2), n.subtract(BigInteger.valueOf(2)));</span>
+
+<span class="fc" id="L27">            BigInteger x = a.modPow(t, n);</span>
+
+<span class="fc bfc" id="L29" title="All 4 branches covered.">            if (x.equals(BigInteger.ONE) || x.equals(n.subtract(BigInteger.valueOf(1))))</span>
+<span class="fc" id="L30">                continue;</span>
+
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">            for (int r = 1; r &lt; s; r++) {</span>
+<span class="fc" id="L33">                x = x.modPow(BigInteger.valueOf(2), n);</span>
+
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">                if (x.equals(BigInteger.ONE))</span>
+<span class="nc" id="L36">                    return false;</span>
+
+<span class="fc bfc" id="L38" title="All 2 branches covered.">                if (x.equals(n.subtract(BigInteger.valueOf(1))))</span>
+<span class="fc" id="L39">                    break;</span>
+            }
+
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">            if (!x.equals(n.subtract(BigInteger.valueOf(1))))</span>
+<span class="nc" id="L43">                return false;</span>
+        }
+
+<span class="fc" id="L46">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

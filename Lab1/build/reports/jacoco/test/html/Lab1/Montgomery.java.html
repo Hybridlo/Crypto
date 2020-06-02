@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Montgomery.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab1</a> &gt; <a href="index.source.html" class="el_package">Lab1</a> &gt; <span class="el_source">Montgomery.java</span></div><h1>Montgomery.java</h1><pre class="source lang-java linenums">package Lab1;
+
+import java.math.BigInteger;
+
+<span class="pc bpc" id="L5" title="1 of 2 branches missed.">public class Montgomery {</span>
+
+    private BigInteger modulus;
+
+    private BigInteger reducer;
+    private int reducerBits;
+    private BigInteger reciprocal;
+    private BigInteger mask;
+    private BigInteger factor;
+    private BigInteger convertedOne;
+
+
+<span class="fc" id="L17">    public Montgomery(BigInteger modulus) {</span>
+<span class="pc bpc" id="L18" title="2 of 4 branches missed.">        if (!modulus.testBit(0) || modulus.compareTo(BigInteger.ONE) &lt;= 0)</span>
+<span class="nc" id="L19">            throw new IllegalArgumentException(&quot;Modulus must be an odd number at least 3&quot;);</span>
+<span class="fc" id="L20">        this.modulus = modulus;</span>
+
+<span class="fc" id="L22">        reducerBits = (modulus.bitLength() / 8 + 1) * 8;</span>
+<span class="fc" id="L23">        reducer = BigInteger.ONE.shiftLeft(reducerBits);</span>
+<span class="fc" id="L24">        mask = reducer.subtract(BigInteger.ONE);</span>
+<span class="pc bpc" id="L25" title="3 of 6 branches missed.">        assert reducer.compareTo(modulus) &gt; 0 &amp;&amp; reducer.gcd(modulus).equals(BigInteger.ONE);</span>
+
+<span class="fc" id="L27">        reciprocal = reducer.modInverse(modulus);</span>
+<span class="fc" id="L28">        factor = reducer.multiply(reciprocal).subtract(BigInteger.ONE).divide(modulus);</span>
+<span class="fc" id="L29">        convertedOne = reducer.mod(modulus);</span>
+<span class="fc" id="L30">    }</span>
+
+    public BigInteger convertIn(BigInteger x) {
+<span class="fc" id="L33">        return x.shiftLeft(reducerBits).mod(modulus);</span>
+    }
+
+    public BigInteger convertOut(BigInteger x) {
+<span class="fc" id="L37">        return x.multiply(reciprocal).mod(modulus);</span>
+    }
+
+    public BigInteger multiply(BigInteger x, BigInteger y) {
+<span class="pc bpc" id="L41" title="3 of 6 branches missed.">        assert x.signum() &gt;= 0 &amp;&amp; x.compareTo(modulus) &lt; 0;</span>
+<span class="pc bpc" id="L42" title="3 of 6 branches missed.">        assert y.signum() &gt;= 0 &amp;&amp; y.compareTo(modulus) &lt; 0;</span>
+<span class="fc" id="L43">        BigInteger product = x.multiply(y);</span>
+<span class="fc" id="L44">        BigInteger temp = product.and(mask).multiply(factor).and(mask);</span>
+<span class="fc" id="L45">        BigInteger reduced = product.add(temp.multiply(modulus)).shiftRight(reducerBits);</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        BigInteger result = reduced.compareTo(modulus) &lt; 0 ? reduced : reduced.subtract(modulus);</span>
+<span class="pc bpc" id="L47" title="3 of 6 branches missed.">        assert result.signum() &gt;= 0 &amp;&amp; result.compareTo(modulus) &lt; 0;</span>
+<span class="fc" id="L48">        return result;</span>
+    }
+
+    public BigInteger modPow(BigInteger x, BigInteger y) {
+<span class="pc bpc" id="L52" title="3 of 6 branches missed.">        assert x.signum() &gt;= 0 &amp;&amp; x.compareTo(modulus) &lt; 0;</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        if (y.signum() == -1)</span>
+<span class="nc" id="L54">            throw new IllegalArgumentException(&quot;Negative exponent&quot;);</span>
+
+<span class="fc" id="L56">        BigInteger z = convertedOne;</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        for (int i = 0, len = y.bitLength(); i &lt; len; i++) {</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">            if (y.testBit(i))</span>
+<span class="fc" id="L59">                z = multiply(z, x);</span>
+<span class="fc" id="L60">            x = multiply(x, x);</span>
+        }
+<span class="fc" id="L62">        return z;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Lab1.MongometryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-06-02T23:33:49" hostname="WIN-IJ6BLPP633L" time="0.029">
+  <properties/>
+  <testcase name="testMontgomeryPow()" classname="Lab1.MongometryTest" time="0.022"/>
+  <testcase name="testMontgomeryMultiply()" classname="Lab1.MongometryTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
