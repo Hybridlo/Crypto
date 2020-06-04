@@ -11,15 +11,14 @@ class DESTest {
 
         String res = des.encrypt("Hello", "World", false);
 
-        assertEquals("\u0014\u00d5\u007F\u0019\u00ee\u00d4\u00aa\u002d",    //utf-16 string, because using actual result
-                res);                                                                //can break stuff
+        assertEquals("14C3957F19C3AEC394C2AA2D", res);
     }
 
     @Test
     void testDecrypt() {
         DES des = new DES();
 
-        String res = des.decrypt("\u0014\u00d5\u007F\u0019\u00ee\u00d4\u00aa\u002d", "World", false);
+        String res = des.decrypt("14C3957F19C3AEC394C2AA2D", "World", false);
 
         assertEquals("Hello###", res);
     }

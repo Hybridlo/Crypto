@@ -1,6 +1,9 @@
 package Lab2;
 
+import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
+
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class DES {
     private final int sizeOfChar = 8; //use ascii(8bit)
@@ -176,13 +179,17 @@ public class DES {
         for (int i = 0; i < blocks.length; i++)
             result.append(blocks[i]);
 
-        if (debug)
-            System.out.println("Encoded string: " + stringFromBinaryToNormalFormat(result.toString()));
+        String hex = HexBin.encode(stringFromBinaryToNormalFormat(result.toString()).getBytes());
 
-        return stringFromBinaryToNormalFormat(result.toString());
+        if (debug)
+            System.out.println("Encrypted string: " + hex);
+
+        return hex;
     }
 
-    String decrypt(String ciphertext, String key, boolean debug) {
+    String decrypt(String hex, String key, boolean debug) {
+        String ciphertext = new String(HexBin.decode(hex), StandardCharsets.UTF_8);
+
         cutStringIntoBlocks(ciphertext);
 
         key = correctKeyWord(key, ciphertext.length() / (2 * blocks.length));

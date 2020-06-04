@@ -10,7 +10,7 @@ class TDESTest {
         TDES tdes = new TDES();
 
         String res = tdes.encrypt("Hello World", "StrongPassword", false);
-        String exp = "\u00eb\u00b4\u0057\u0058\u0088\u0000\u006e\u006f\u00a7\u00b7\u0023\u0014\u00fe\n\u0012\u006c";
+        String exp = "C3ABC2B45758C288006E6FC2A7C2B72314C3BE0A126C";
 
         assertEquals(exp, res);
     }
@@ -19,7 +19,7 @@ class TDESTest {
     void testDecrypt() {
         TDES tdes = new TDES();
 
-        String res = tdes.decrypt("\u00eb\u00b4\u0057\u0058\u0088\u0000\u006e\u006f\u00a7\u00b7\u0023\u0014\u00fe\n\u0012\u006c",
+        String res = tdes.decrypt("C3ABC2B45758C288006E6FC2A7C2B72314C3BE0A126C",
                 "StrongPassword", false);
 
         assertEquals("Hello World#####", res);

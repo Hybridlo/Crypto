@@ -75,9 +75,8 @@ public class BitArray {
             res.append(add).append(Integer.toString(decimal, 16));
         }
 
-        if (res.length() < 8)
-            for (int i = 0; i < 8 - res.length(); i++)
-                res.append("0");
+        if (res.length() % 2 == 1)
+            res.append("0");
 
         return res.toString();
     }
