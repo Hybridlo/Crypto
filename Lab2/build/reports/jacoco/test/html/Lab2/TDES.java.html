@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TDES.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Lab2</a> &gt; <a href="index.source.html" class="el_package">Lab2</a> &gt; <span class="el_source">TDES.java</span></div><h1>TDES.java</h1><pre class="source lang-java linenums">package Lab2;
+
+<span class="fc" id="L3">public class TDES {</span>
+<span class="fc" id="L4">    private final int sizeOfChar = 8; //use ascii(8bit)</span>
+<span class="fc" id="L5">    private final int sizeOfBlock = sizeOfChar * 8;</span>
+
+    private String strToRightLength(String input) {
+<span class="fc" id="L8">        StringBuilder inputBuilder = new StringBuilder(input);</span>
+
+<span class="fc bfc" id="L10" title="All 2 branches covered.">        while (((inputBuilder.length() * sizeOfChar) % sizeOfBlock) != 0)</span>
+<span class="fc" id="L11">            inputBuilder.append(&quot;#&quot;);</span>
+
+<span class="fc" id="L13">        input = inputBuilder.toString();</span>
+
+<span class="fc" id="L15">        return input;</span>
+    }
+
+    private String correctKeyWord(String input, int lengthKey) {
+<span class="pc bpc" id="L19" title="1 of 2 branches missed.">        if (input.length() &gt; lengthKey)</span>
+<span class="fc" id="L20">            input = input.substring(0, lengthKey);</span>
+        else {
+<span class="nc" id="L22">            StringBuilder inputBuilder = new StringBuilder(input);</span>
+
+<span class="nc bnc" id="L24" title="All 2 branches missed.">            while (inputBuilder.length() &lt; lengthKey)</span>
+<span class="nc" id="L25">                inputBuilder.insert(0, &quot;0&quot;);</span>
+
+<span class="nc" id="L27">            input = inputBuilder.toString();</span>
+        }
+
+<span class="fc" id="L30">        return input;</span>
+    }
+
+    String encrypt(String plaintext, String key, boolean debug) {
+<span class="fc" id="L34">        DES des = new DES();</span>
+
+<span class="fc" id="L36">        plaintext = strToRightLength(plaintext);</span>
+<span class="fc" id="L37">        key = correctKeyWord(key, 3 * plaintext.length() / (2 * plaintext.length() / sizeOfChar));</span>
+
+<span class="fc" id="L39">        String[] keys = {key.substring(0, key.length() / 3),</span>
+<span class="fc" id="L40">                key.substring(key.length() / 3, (2 * key.length()) / 3),</span>
+<span class="fc" id="L41">                key.substring((2 * key.length()) / 3)</span>
+        };
+
+<span class="fc" id="L44">        String ciphertext = des.encrypt(</span>
+<span class="fc" id="L45">                des.decrypt(</span>
+<span class="fc" id="L46">                        des.encrypt(plaintext, keys[0], debug),</span>
+                        keys[1], debug),
+                keys[2], debug);
+
+<span class="fc" id="L50">        return ciphertext;</span>
+    }
+
+    String decrypt(String ciphertext, String key, boolean debug) {
+<span class="fc" id="L54">        DES des = new DES();</span>
+
+<span class="fc" id="L56">        key = correctKeyWord(key, 3 * ciphertext.length() / (2 * ciphertext.length() / sizeOfChar));</span>
+
+<span class="fc" id="L58">        String[] keys = {key.substring(0, key.length() / 3),</span>
+<span class="fc" id="L59">                key.substring(key.length() / 3, (2 * key.length()) / 3),</span>
+<span class="fc" id="L60">                key.substring((2 * key.length()) / 3)</span>
+        };
+
+<span class="fc" id="L63">        String plaintext = des.decrypt(</span>
+<span class="fc" id="L64">                des.encrypt(</span>
+<span class="fc" id="L65">                        des.decrypt(ciphertext, keys[0], debug),</span>
+                        keys[1], debug),
+                keys[2], debug);
+
+<span class="fc" id="L69">        return plaintext;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

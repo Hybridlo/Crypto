@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Lab1.MillerRabinTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-02T23:33:48" hostname="WIN-IJ6BLPP633L" time="0.196">
+<testsuite name="Lab1.MillerRabinTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-05T15:18:37" hostname="WIN-IJ6BLPP633L" time="0.128">
   <properties/>
-  <testcase name="testMillerRabin()" classname="Lab1.MillerRabinTest" time="0.196"/>
+  <testcase name="testMillerRabin()" classname="Lab1.MillerRabinTest" time="0.128"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

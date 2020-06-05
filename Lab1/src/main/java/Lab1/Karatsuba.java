@@ -26,6 +26,6 @@ public class Karatsuba {
         BigInteger second = multiply(b,d);
         BigInteger third = multiply(a.add(b),c.add(d));
 
-        return ((first.multiply(ten.pow(n.intValue()))).add ((((third.subtract(first)).subtract( second))).multiply(ten.pow(n.divide((two)).intValue()))).add(second));
+        return (first.multiply(ten.pow(n.intValue()))).add((((third.subtract(first)).subtract( second)).multiply(ten.pow(n.divide((two)).intValue()))).add(second));
     }
 }

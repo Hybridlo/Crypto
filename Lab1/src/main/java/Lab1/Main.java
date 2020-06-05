@@ -14,7 +14,7 @@ public class Main {
             System.out.println("Miller-Rabin test pass");
 
         System.out.println("Prime 555 bit to pow 200 mod 5001 with binmodpow:");
-        System.out.println(BinModPow.binModPow(new BigInteger(prime555), new BigInteger("200"), new BigInteger("5001")));
+        System.out.println(BinModPow.binModPow(new BigInteger(prime555), BigInteger.valueOf(200), BigInteger.valueOf(5001)));
 
         System.out.println("34566543234567 x 987657896543 with karatsuba");
         System.out.println(Karatsuba.multiply(new BigInteger("34566543234567"), new BigInteger("987657896543")).toString());
@@ -26,7 +26,7 @@ public class Main {
 
         System.out.println("Prime 555 bit to pow 200 mod 5001 with montgomery:");
         m = new Montgomery();
-        m.setM(new BigInteger("5001"));
+        m.setM(BigInteger.valueOf(5001));
         System.out.println(m.modPow(new BigInteger(prime555), BigInteger.valueOf(200)));
 
         AtomicReference<BigInteger> x = new AtomicReference<>();

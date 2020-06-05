@@ -2,12 +2,11 @@ package Lab1;
 
 import java.math.BigInteger;
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Util {
     private Util(){}
 
-    static Random rand = new Random();
+    private static Random rand = new Random();
 
     static BigInteger randBigInt(BigInteger minLimit, BigInteger maxLimit) {
         BigInteger bigInteger = maxLimit.subtract(minLimit);

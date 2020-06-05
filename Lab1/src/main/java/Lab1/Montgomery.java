@@ -21,9 +21,8 @@ public class Montgomery {
     private BigInteger oneMult(BigInteger x, BigInteger y) {
         BigInteger xy = x.multiply(y);
         BigInteger factored = xy.multiply(factor);
-        BigInteger res = xy.add(factored.multiply(m)).shiftRight(bitLengthR);
 
-        return res;
+        return xy.add(factored.multiply(m)).shiftRight(bitLengthR);
     }
 
     public void setM(BigInteger m) {

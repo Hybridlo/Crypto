@@ -1,0 +1,49 @@
+SonarQube plugins:
+  - SonarPython 1.16.0.4432 (python)
+  - SonarCSS 1.1.1.1010 (cssfamily)
+  - JaCoCo 1.0.2.475 (jacoco)
+  - SonarGo 1.6.0.719 (go)
+  - SonarKotlin 1.5.0.315 (kotlin)
+  - Svn 1.9.0.1295 (scmsvn)
+  - SonarJS 5.2.1.7778 (javascript)
+  - SonarRuby 1.5.0.315 (ruby)
+  - SonarScala 1.5.0.315 (sonarscala)
+  - SonarC# 7.17.0.9346 (csharp)
+  - SonarJava 5.14.0.18788 (java)
+  - SonarHTML 3.2.0.2082 (web)
+  - Git 1.9.1.1834 (scmgit)
+  - SonarFlex 2.5.1.1831 (flex)
+  - SonarXML 2.0.1.2020 (xml)
+  - SonarPHP 3.2.0.4868 (php)
+  - SonarTS 1.9.0.3766 (typescript)
+  - SonarVB 7.17.0.9346 (vbnet)
+Global server settings:
+  - sonar.core.id=BF41A1F2-AW5bcrCbfMsx7W2gZdj8
+  - sonar.core.startTime=2020-06-05T17:46:04+0300
+Project server settings:
+Project scanner properties:
+  - sonar.binaries=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\classes\java\main
+  - sonar.host.url=http://localhost:9000
+  - sonar.jacoco.reportPath=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\jacoco\test.exec
+  - sonar.jacoco.reportPaths=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\jacoco\test.exec
+  - sonar.java.binaries=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\classes\java\main
+  - sonar.java.libraries=C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar,C:\Program Files\Java\jdk1.8.0_231\jre\lib\ext\jfxrt.jar
+  - sonar.java.source=1.8
+  - sonar.java.target=1.8
+  - sonar.java.test.binaries=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\classes\java\test
+  - sonar.java.test.libraries=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\classes\java\main,C:\Users\User\.gradle\caches\modules-2\files-2.1\org.junit.jupiter\junit-jupiter-api\5.3.1\a7e97eac2784395cb991403f9641b042ad972941\junit-jupiter-api-5.3.1.jar,C:\Users\User\.gradle\caches\modules-2\files-2.1\org.junit.platform\junit-platform-commons\1.3.1\67b7edddfac1935e6e6d9b58d7c7df6db59b1d39\junit-platform-commons-1.3.1.jar,C:\Users\User\.gradle\caches\modules-2\files-2.1\org.apiguardian\apiguardian-api\1.0.0\3ef5276905e36f4d8055fe3cb0bdcc7503ffc85d\apiguardian-api-1.0.0.jar,C:\Users\User\.gradle\caches\modules-2\files-2.1\org.opentest4j\opentest4j\1.1.1\efd9f971e91074491ea55b19f67b13470cf4fcdd\opentest4j-1.1.1.jar,C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar,C:\Program Files\Java\jdk1.8.0_231\jre\lib\ext\jfxrt.jar
+  - sonar.junit.reportPaths=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\test-results\test
+  - sonar.junit.reportsPath=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\test-results\test
+  - sonar.libraries=C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar,C:\Program Files\Java\jdk1.8.0_231\jre\lib\ext\jfxrt.jar
+  - sonar.login=******
+  - sonar.projectBaseDir=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1
+  - sonar.projectKey=CryptoLab1
+  - sonar.projectName=Lab1
+  - sonar.projectVersion=1.0-SNAPSHOT
+  - sonar.scanner.app=ScannerGradle
+  - sonar.scanner.appVersion=2.7-SNAPSHOT/5.2.1
+  - sonar.sourceEncoding=windows-1251
+  - sonar.sources=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\src\main\java
+  - sonar.surefire.reportsPath=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\test-results\test
+  - sonar.tests=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\src\test\java
+  - sonar.working.directory=C:\Users\User\Desktop\3course2sem\Cryptology\Lab1\build\sonar

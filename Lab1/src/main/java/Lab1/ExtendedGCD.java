@@ -15,7 +15,8 @@ public class ExtendedGCD {
             return b;
         }
 
-        AtomicReference<BigInteger> x1 = new AtomicReference<>(), y1 = new AtomicReference<>(); // To store results of recursive call
+        AtomicReference<BigInteger> x1 = new AtomicReference<>();
+        AtomicReference<BigInteger> y1 = new AtomicReference<>(); // To store results of recursive call
         x1.set(BigInteger.ONE);
         y1.set(BigInteger.ONE);
         BigInteger gcd = extendedGCD(b.mod(a), a, x1, y1);

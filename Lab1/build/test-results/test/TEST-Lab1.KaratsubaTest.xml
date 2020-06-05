@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Lab1.KaratsubaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-02T23:33:48" hostname="WIN-IJ6BLPP633L" time="0.749">
+<testsuite name="Lab1.KaratsubaTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-05T15:18:37" hostname="WIN-IJ6BLPP633L" time="0.821">
   <properties/>
-  <testcase name="testKaratsuba()" classname="Lab1.KaratsubaTest" time="0.749"/>
+  <testcase name="testKaratsuba()" classname="Lab1.KaratsubaTest" time="0.821"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
