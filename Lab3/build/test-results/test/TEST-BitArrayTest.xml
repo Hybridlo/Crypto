@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BitArrayTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-06-05T16:03:46" hostname="WIN-IJ6BLPP633L" time="0.115">
+  <properties/>
+  <testcase name="testAdd()" classname="BitArrayTest" time="0.032"/>
+  <testcase name="testSubArray()" classname="BitArrayTest" time="0.003"/>
+  <testcase name="testToHex()" classname="BitArrayTest" time="0.041"/>
+  <testcase name="testToInt()" classname="BitArrayTest" time="0.002"/>
+  <testcase name="testSize()" classname="BitArrayTest" time="0.002"/>
+  <testcase name="testAddToStart()" classname="BitArrayTest" time="0.001"/>
+  <testcase name="testFromBytes()" classname="BitArrayTest" time="0.003"/>
+  <testcase name="testFromLongs()" classname="BitArrayTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,3 +1,5 @@
+package lab3;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,22 +40,17 @@ public class BitArray {
         return res;
     }
 
-    int toInt() throws Exception {
-        if (array.size() >= 64)
-            throw new Exception();
-
+    int toInt() {
         int res = 0;
 
         for (int i = 0; i < array.size(); i++)
-            if (array.get(i))
+            if (Boolean.TRUE.equals(array.get(i)))
                 res += Math.pow(2, i);
 
         return res;
     }
 
-    String toHex() throws Exception {
-        if (array.size() > 32)
-            throw new Exception();
+    String toHex() {
 
         StringBuilder res = new StringBuilder();
 
@@ -64,7 +61,7 @@ public class BitArray {
                 if (i + j == array.size())
                     break;
 
-                binaryString.append(array.get(i + j) ? "1" : "0");
+                binaryString.append(Boolean.TRUE.equals(array.get(i + j)) ? "1" : "0");
             }
             binaryString.reverse();
 
@@ -87,10 +84,7 @@ public class BitArray {
             byte aByte = bytes[i];
 
             for (int j = 0; j < 8; j++) {
-                if (aByte % 2 == 1)
-                    res.add(true);
-                else
-                    res.add(false);
+                res.add(aByte % 2 == 1);
 
                 aByte /= 2;
             }
@@ -111,10 +105,7 @@ public class BitArray {
             }
 
             for (int j = 0; j < 64; j++) {
-                if (aLong % 2 == 1)
-                    res.add(true);
-                else
-                    res.add(false);
+                res.add(aLong % 2 == 1);
 
                 aLong /= 2;
 

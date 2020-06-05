@@ -1,3 +1,5 @@
+package lab3;
+
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,7 @@ public class MD5 {
     private int C;
     private int D;
 
-    String hash(String input) throws Exception {
+    String hash(String input) {
         BitArray array = step1(input);
         step2(input, array);
         step3();
@@ -82,7 +84,7 @@ public class MD5 {
         return res;
     }
 
-    private void step4(BitArray step2res) throws Exception {
+    private void step4(BitArray step2res) {
         int[] table = sineTable();
 
         int n = step2res.size() / 32;
@@ -150,17 +152,15 @@ public class MD5 {
         }
     }
 
-    private String step5() throws Exception {
+    private String step5() {
         BitArray tmpA = BitArray.fromLongs(new long[]{A});
         BitArray tmpB = BitArray.fromLongs(new long[]{B});
         BitArray tmpC = BitArray.fromLongs(new long[]{C});
         BitArray tmpD = BitArray.fromLongs(new long[]{D});
 
-        String res = tmpA.toHex() +
+        return tmpA.toHex() +
                 tmpB.toHex() +
                 tmpC.toHex() +
                 tmpD.toHex();
-
-        return res;
     }
 }

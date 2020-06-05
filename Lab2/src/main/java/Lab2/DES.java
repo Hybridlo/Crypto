@@ -3,7 +3,6 @@ package Lab2;
 import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 public class DES {
     private final int sizeOfChar = 8; //use ascii(8bit)

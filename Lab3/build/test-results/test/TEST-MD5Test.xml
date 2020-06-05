@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MD5Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-04T08:58:08" hostname="WIN-IJ6BLPP633L" time="0.045">
+<testsuite name="MD5Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-05T16:03:46" hostname="WIN-IJ6BLPP633L" time="0.009">
   <properties/>
-  <testcase name="testHash()" classname="MD5Test" time="0.045"/>
+  <testcase name="testHash()" classname="MD5Test" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
